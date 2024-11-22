@@ -7,6 +7,9 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    if request.xhr?
+      render json: @article
+    end
   end
 
   def new
