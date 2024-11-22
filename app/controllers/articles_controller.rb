@@ -10,6 +10,10 @@ class ArticlesController < ApplicationController
     if request.xhr?
       render json: @article
     end
+    respond_to do |format|
+      format.html { render :show }  # Renders the show.html.erb template
+      format.json { render json: @article }  # Renders the article as JSON
+    end
   end
 
   def new
